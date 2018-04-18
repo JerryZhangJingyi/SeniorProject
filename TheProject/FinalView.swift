@@ -266,6 +266,7 @@ class FinalView: UIViewController, ChartViewDelegate{
         setChart(data: Year, Values: Amount)
         
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func didReceiveMemoryWarning() {

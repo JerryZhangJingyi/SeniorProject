@@ -283,7 +283,7 @@
                         <viewControllerLayoutGuide type="top" id="els-Fd-1H6"/>
                         <viewControllerLayoutGuide type="bottom" id="dq7-7r-P1V"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QKp-oy-kVb">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="QKp-oy-kVb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -607,6 +607,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="rQi-kx-lHQ"/>
         <segue reference="w21-2X-om1"/>
-        <segue reference="eSQ-b1-8Uh"/>
+        <segue reference="feP-LA-nNp"/>
     </inferredMetricsTieBreakers>
 </document>
