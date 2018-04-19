@@ -9,9 +9,9 @@ note: It has not yet be tested on mobile devices so errors might occor when inst
 
 # Data
 
-There are 2 sets of yearly data: GDP data, Labor data.  
+There are 5 sets of yearly data: GDP data, Labor data, Monetary data, Currency data, Other data.  
 The data was collected from FRED during 1996 to 2017 and they will be displayed as following:  
-GDP (Billions of Dollars):  
+--GDP Data (Billions of Dollars):  
 Gross Domestic Product  
 .Personal Consumption Expenditures  
 ..Durable Goods  
@@ -30,12 +30,31 @@ Gross Domestic Product
 ...National Defense Expenditures  
 ...Nondefense Expenditures  
 ..State Consumption Expenditures And Gross Investment  
-Labor (Thousands of Personnels):  
+--Labor Data (Thousands of Personnels):  
 Civilian Noninstitutional Population  
 .Civilian Labor Force  
 ..Employment Level  
 ..Unemployment Level  
 .Not In Labor Force  
+--Monetary Data (Units differ)
+Monetary Base  
+.Currency In Circulation  
+.Reserve Balances With Federal Reserve Banks  
+M1 Money Stock  
+M2 Money Stock  
+--Currency Data (Units differ)  
+Trade Weighted US Dollar Index  
+US UK Foreign Exchange Rate  
+China US Foreign Exchange Rate  
+Canada US Froeign Exchange Rate  
+Japan US Foreign Exchange Rate  
+--Other Data (Units differ)  
+SP 500  
+Dow Jones Industrial Average  
+Wilshire 5000 Total Market Index  
+CBOE Volatility Index  
+St Louis Fed Financial Stress Index  
+State And Local Bonds Index  
 
 # Usage
 
