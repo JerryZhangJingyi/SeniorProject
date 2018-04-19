@@ -36,7 +36,7 @@ Civilian Noninstitutional Population
 ..Employment Level  
 ..Unemployment Level  
 .Not In Labor Force  
---Monetary Data (Units differ)
+--Monetary Data (Units differ)  
 Monetary Base  
 .Currency In Circulation  
 .Reserve Balances With Federal Reserve Banks  
