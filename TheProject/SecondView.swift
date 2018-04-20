@@ -133,16 +133,16 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         else if Name == "Trade Weighted US Dollar Index"{
             unit.text = "(Index Mar 1973 = 100)"
         }
-        else if Name == "US UK ForeignExchangeRate"{
+        else if Name == "US UK Foreign Exchange Rate"{
             unit.text = "(US Dollars to One British Pound)"
         }
-        else if Name == "Trade Weighted US Dollar Index"{
+        else if Name == "China US Foreign Exchange Rate"{
             unit.text = "(US Dollars to One Chinese Yuan)"
         }
-        else if Name == "Trade Weighted US Dollar Index"{
+        else if Name == "Canada US Foreign Exchange Rate"{
             unit.text = "(US Dollars to One Canadian Dollar)"
         }
-        else if Name == "Trade Weighted US Dollar Index"{
+        else if Name == "Japan US Foreign Exchange Rate"{
             unit.text = "(US Dollars to One Japanese Yen)"
         }
     }
