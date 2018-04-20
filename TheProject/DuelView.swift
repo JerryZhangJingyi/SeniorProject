@@ -66,6 +66,17 @@ class DuelView: UIViewController, ChartViewDelegate{
         let alldata22 = realm.objects(UnemploymentLevel.self)
         let alldata23 = realm.objects(NotInLaborForce.self)
         
+        let alldata24 = realm.objects(MonetaryBase.self)
+        let alldata25 = realm.objects(CurrencyInCirculation.self)
+        let alldata26 = realm.objects(ReserveBalancesWithFederalReserveBanks.self)
+        let alldata27 = realm.objects(M1MoneyStock.self)
+        let alldata28 = realm.objects(M2MoneyStock.self)
+        
+        let alldata29 = realm.objects(TradeWeightedUSDollarIndex.self)
+        let alldata30 = realm.objects(USUKForeignExchangeRate.self)
+        let alldata31 = realm.objects(ChinaUSForeignExchangeRate.self)
+        let alldata32 = realm.objects(CanadaUSForeignExchangeRate.self)
+        let alldata33 = realm.objects(JapanUSForeignExchangeRate.self)
         //first-----------------------
         if first == "Gross Domestic Product"{
             for i in alldata{
@@ -228,6 +239,76 @@ class DuelView: UIViewController, ChartViewDelegate{
                 //tableView.reloadData()
             }
         }
+        else if first == "Monetary Base"{
+            for i in alldata24{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "Currency In Circulation"{
+            for i in alldata25{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "Reserve Balances With Federal Reserve Banks"{
+            for i in alldata26{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "M1 Money Stock"{
+            for i in alldata27{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "M2 Money Stock"{
+            for i in alldata28{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "Trade Weighted US Dollar Index"{
+            for i in alldata29{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "US UK Foreign Exchange Rate"{
+            for i in alldata30{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "China US Foreign Exchange Rate"{
+            for i in alldata31{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "Canada US Foreign Exchange Rate"{
+            for i in alldata32{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if first == "Japan US Foreign Exchange Rate"{
+            for i in alldata33{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
         //second ---------------------
         if second == "Gross Domestic Product"{
             for i in alldata{
@@ -385,6 +466,76 @@ class DuelView: UIViewController, ChartViewDelegate{
         }
         else if second == "Not In Labor Force"{
             for i in alldata23{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "Monetary Base"{
+            for i in alldata24{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "Currency In Circulation"{
+            for i in alldata25{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "Reserve Balances With Federal Reserve Banks"{
+            for i in alldata26{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "M1 Money Stock"{
+            for i in alldata27{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "M2 Money Stock"{
+            for i in alldata28{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "Trade Weighted US Dollar Index"{
+            for i in alldata29{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "US UK Foreign Exchange Rate"{
+            for i in alldata30{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "China US Foreign Exchange Rate"{
+            for i in alldata31{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "Canada US Foreign Exchange Rate"{
+            for i in alldata32{
+                //Year.append("\(i.Year)")
+                Amount2.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if second == "Japan US Foreign Exchange Rate"{
+            for i in alldata33{
                 //Year.append("\(i.Year)")
                 Amount2.append(i.data)
                 //tableView.reloadData()

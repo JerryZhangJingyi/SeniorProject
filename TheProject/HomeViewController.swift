@@ -32,9 +32,12 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     enum choices: String{
         case GDP = "GDP Data"
         case Labor = "Labor Data"
+        case Monetary = "Monetary Data"
+        case Currency = "Currency Data"
+        case Other = "Other Data"
     }
     
-    //--------------
+    //data selected--------------
     @IBAction func data(_ sender: UIButton) {
         guard let title = sender.currentTitle,
         let choice = choices(rawValue: title) else {
@@ -50,6 +53,43 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             })}
         
         switch choice{
+            
+        case .Other:
+            flag = 1
+            Select.text = "Select one"
+            dataset.removeAll()
+            dataset = ["SP 500",
+                       "Dow Jones Industrial Average",
+                       "Wilshire 5000 Total Market Index",
+                       "CBOE Volatility Index",
+                       "St Louis Fed Financial Stress Index",
+                       "StateAndLocalBondsIndex"
+            ]
+            loadData()
+            
+        case .Currency:
+            flag = 1
+            Select.text = "Select one"
+            dataset.removeAll()
+            dataset = ["Trade Weighted US Dollar Index",
+                       "US UK Foreign Exchange Rate",
+                       "China US Foreign Exchange Rate",
+                       "Canada US Foreign Exchange Rate",
+                       "Japan US Foreign Exchange Rate"
+            ]
+            loadData()
+            
+        case .Monetary:
+            flag = 1
+            Select.text = "Select one"
+            dataset.removeAll()
+            dataset = ["Monetary Base",
+                       "Currency In Circulation",
+                       "Reserve Balances With Federal Reserve Banks",
+                       "M1 Money Stock",
+                       "M2 Money Stock"
+            ]
+            loadData()
         
         case .Labor:
             flag = 1
@@ -179,7 +219,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) 
         
-        //print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
        
     }
     

@@ -124,4 +124,84 @@ class NotInLaborForce : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
 }
+//Monetary sets-----------------
+class MonetaryBase : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class CurrencyInCirculation : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class ReserveBalancesWithFederalReserveBanks : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class M1MoneyStock : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class M2MoneyStock : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+//Currency Sets------------------
+class TradeWeightedUSDollarIndex : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class USUKForeignExchangeRate : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class ChinaUSForeignExchangeRate : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class CanadaUSForeignExchangeRate : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class JapanUSForeignExchangeRate : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+//Other sets----------------------------
+class SP500 : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class DowJonesIndustrialAverage : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class Wilshire5000TotalMarketIndex : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class CBOEVolatilityIndex : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class StLouisFedFinancialStressIndex : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
+
+class StateAndLocalBondsIndex : Object{
+    @objc dynamic var Year = ""
+    @objc dynamic var data = 0.0
+}
 

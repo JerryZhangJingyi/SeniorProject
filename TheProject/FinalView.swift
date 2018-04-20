@@ -65,6 +65,25 @@ class FinalView: UIViewController, ChartViewDelegate{
         let alldata22 = realm.objects(UnemploymentLevel.self)
         let alldata23 = realm.objects(NotInLaborForce.self)
         
+        let alldata24 = realm.objects(MonetaryBase.self)
+        let alldata25 = realm.objects(CurrencyInCirculation.self)
+        let alldata26 = realm.objects(ReserveBalancesWithFederalReserveBanks.self)
+        let alldata27 = realm.objects(M1MoneyStock.self)
+        let alldata28 = realm.objects(M2MoneyStock.self)
+        
+        let alldata29 = realm.objects(TradeWeightedUSDollarIndex.self)
+        let alldata30 = realm.objects(USUKForeignExchangeRate.self)
+        let alldata31 = realm.objects(ChinaUSForeignExchangeRate.self)
+        let alldata32 = realm.objects(CanadaUSForeignExchangeRate.self)
+        let alldata33 = realm.objects(JapanUSForeignExchangeRate.self)
+        
+        let alldata34 = realm.objects(SP500.self)
+        let alldata35 = realm.objects(DowJonesIndustrialAverage.self)
+        let alldata36 = realm.objects(Wilshire5000TotalMarketIndex.self)
+        let alldata37 = realm.objects(CBOEVolatilityIndex.self)
+        let alldata38 = realm.objects(StLouisFedFinancialStressIndex.self)
+        let alldata39 = realm.objects(StateAndLocalBondsIndex.self)
+        
         if name == "Gross Domestic Product"{
             for i in alldata{
                 Year.append("\(i.Year)")
@@ -221,6 +240,118 @@ class FinalView: UIViewController, ChartViewDelegate{
         }
         else if name == "Not In Labor Force"{
             for i in alldata23{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Monetary Base"{
+            for i in alldata24{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Currency In Circulation"{
+            for i in alldata25{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Reserve Balances With Federal Reserve Banks"{
+            for i in alldata26{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "M1 Money Stock"{
+            for i in alldata27{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "M2 Money Stock"{
+            for i in alldata28{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Trade Weighted US Dollar Index"{
+            for i in alldata29{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "US UK Foreign Exchange Rate"{
+            for i in alldata30{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "China US Foreign Exchange Rate"{
+            for i in alldata31{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Canada US Foreign Exchange Rate"{
+            for i in alldata32{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Japan US Foreign Exchange Rate"{
+            for i in alldata33{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "SP 500"{
+            for i in alldata34{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Dow Jones Industrial Average"{
+            for i in alldata35{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "Wilshire 5000 Total Market Index"{
+            for i in alldata36{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "CBOE Volatility Index"{
+            for i in alldata37{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "St Louis Fed Financial Stress Index"{
+            for i in alldata38{
+                Year.append("\(i.Year)")
+                Amount.append(i.data)
+                //tableView.reloadData()
+            }
+        }
+        else if name == "State And Local Bonds Index"{
+            for i in alldata39{
                 Year.append("\(i.Year)")
                 Amount.append(i.data)
                 //tableView.reloadData()

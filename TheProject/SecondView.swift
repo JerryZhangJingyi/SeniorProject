@@ -114,7 +114,12 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             Name == "Federal Consumption Expenditures And Gross Investment" ||
             Name == "National Defense Expenditures" ||
             Name == "Nondefense Expenditures" ||
-            Name == "State Consumption Expenditures And Gross Investment"
+            Name == "State Consumption Expenditures And Gross Investment" ||
+            Name == "Monetary Base" ||
+            Name == "Currency In Circulation" ||
+            Name == "Reserve Balances With Federal Reserve Banks" ||
+            Name == "M1 Money Stock" ||
+            Name == "M2 Money Stock"
         {
             unit.text = "(Billions of Dollars)"
         }
@@ -124,6 +129,21 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             Name == "Unemployment Level" ||
             Name == "Not In Labor Force"{
             unit.text = "(Thousands of Personnels)"
+        }
+        else if Name == "Trade Weighted US Dollar Index"{
+            unit.text = "(Index Mar 1973 = 100)"
+        }
+        else if Name == "US UK ForeignExchangeRate"{
+            unit.text = "(US Dollars to One British Pound)"
+        }
+        else if Name == "Trade Weighted US Dollar Index"{
+            unit.text = "(US Dollars to One Chinese Yuan)"
+        }
+        else if Name == "Trade Weighted US Dollar Index"{
+            unit.text = "(US Dollars to One Canadian Dollar)"
+        }
+        else if Name == "Trade Weighted US Dollar Index"{
+            unit.text = "(US Dollars to One Japanese Yen)"
         }
     }
     
@@ -162,6 +182,25 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         let alldata21 = realm.objects(EmploymentLevel.self)
         let alldata22 = realm.objects(UnemploymentLevel.self)
         let alldata23 = realm.objects(NotInLaborForce.self)
+        
+        let alldata24 = realm.objects(MonetaryBase.self)
+        let alldata25 = realm.objects(CurrencyInCirculation.self)
+        let alldata26 = realm.objects(ReserveBalancesWithFederalReserveBanks.self)
+        let alldata27 = realm.objects(M1MoneyStock.self)
+        let alldata28 = realm.objects(M2MoneyStock.self)
+        
+        let alldata29 = realm.objects(TradeWeightedUSDollarIndex.self)
+        let alldata30 = realm.objects(USUKForeignExchangeRate.self)
+        let alldata31 = realm.objects(ChinaUSForeignExchangeRate.self)
+        let alldata32 = realm.objects(CanadaUSForeignExchangeRate.self)
+        let alldata33 = realm.objects(JapanUSForeignExchangeRate.self)
+        
+        let alldata34 = realm.objects(SP500.self)
+        let alldata35 = realm.objects(DowJonesIndustrialAverage.self)
+        let alldata36 = realm.objects(Wilshire5000TotalMarketIndex.self)
+        let alldata37 = realm.objects(CBOEVolatilityIndex.self)
+        let alldata38 = realm.objects(StLouisFedFinancialStressIndex.self)
+        let alldata39 = realm.objects(StateAndLocalBondsIndex.self)
         
         if Name == "Gross Domestic Product"{
             for i in alldata{
@@ -325,6 +364,121 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 tableView.reloadData()
             }
         }
+        //money----------------
+        else if Name == "Monetary Base"{
+            for i in alldata24{
+                Year.append("\(i.Year)")
+                Amount.append("$\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "Currency In Circulation"{
+            for i in alldata25{
+                Year.append("\(i.Year)")
+                Amount.append("$\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "Reserve Balances With Federal Reserve Banks"{
+            for i in alldata26{
+                Year.append("\(i.Year)")
+                Amount.append("$\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "M1 Money Stock"{
+            for i in alldata27{
+                Year.append("\(i.Year)")
+                Amount.append("$\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "M2 Money Stock"{
+            for i in alldata28{
+                Year.append("\(i.Year)")
+                Amount.append("$\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        //Currency-----------------
+        else if Name == "Trade Weighted US Dollar Index"{
+            for i in alldata29{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "US UK Foreign Exchange Rate"{
+            for i in alldata30{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "China US Foreign Exchange Rate"{
+            for i in alldata31{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "Canada US Foreign Exchange Rate"{
+            for i in alldata32{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "Japan US Foreign Exchange Rate"{
+            for i in alldata33{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        //Other-----------------------
+        else if Name == "SP 500"{
+            for i in alldata34{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "Dow Jones Industrial Average"{
+            for i in alldata35{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "Wilshire 5000 Total Market Index"{
+            for i in alldata36{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "CBOE Volatility Index"{
+            for i in alldata37{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "St Louis Fed Financial Stress Index"{
+            for i in alldata38{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
+        else if Name == "State And Local Bonds Index"{
+            for i in alldata39{
+                Year.append("\(i.Year)")
+                Amount.append("\(i.data)")
+                tableView.reloadData()
+            }
+        }
     }
     //select target-------------------------------
     func autoTarget(){
@@ -382,6 +536,12 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             Name == "Unemployment Level"{
             DataSet = ["Civilian Noninstitutional Population",
                        "Civilian Labor Force"
+            ]
+            flagInt = 0
+        }
+        else if Name == "Currency In Circulation" ||
+            Name == "Reserve Balances With Federal Reserve Banks"{
+            DataSet = ["Monetary Base"
             ]
             flagInt = 0
         }

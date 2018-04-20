@@ -60,6 +60,9 @@ class CompareView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
             //go = "1"
             //print("#", go)
         }
+        else{
+            flag.text = "Not Comparable"
+        }
     }
     //auto Target------------------------
     func autoTarget(){
@@ -112,6 +115,29 @@ class CompareView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
                     "Employment Level",
                     "Unemployment Level",
                     "Not In Labor Force"
+            ]
+        }
+        else if name == "Monetary Base" ||
+            name == "Currency In Circulation" ||
+            name == "Reserve Balances With Federal Reserve Banks" ||
+            name == "M1 Money Stock" ||
+            name == "M2 Money Stock"{
+            Set = ["Monetary Base",
+                       "Currency In Circulation",
+                       "Reserve Balances With Federal Reserve Banks",
+                       "M1 Money Stock",
+                       "M2 Money Stock"
+            ]
+        }
+            
+        else if
+            name == "China US Foreign Exchange Rate" ||
+            name == "Canada US Foreign Exchange Rate" ||
+            name == "Japan US Foreign Exchange Rate"{
+            Set = [
+                       "China US Foreign Exchange Rate",
+                       "Canada US Foreign Exchange Rate",
+                       "Japan US Foreign Exchange Rate"
             ]
         }
             
