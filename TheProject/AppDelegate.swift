@@ -1,10 +1,6 @@
-//
-//  AppDelegate.swift
-//  FinalProject
-//
 //  Created by JingyiZhang on 26/02/2018.
 //  Copyright © 2018 jz. All rights reserved.
-//
+
 
 import UIKit
 import CoreData

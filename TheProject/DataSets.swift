@@ -1,15 +1,11 @@
-//
-//  DataSets.swift
-//  ProjectPrototype
-//
 //  Created by JingyiZhang on 2/12/18.
 //  Copyright © 2018 jz. All rights reserved.
-//
+
 
 import Foundation
 import RealmSwift
 
-//GDP sets---------------------------
+//GDP sets
 class GrossDomesticProduct : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
@@ -99,7 +95,7 @@ class StateConsumptionExpendituresAndGrossInvestment : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
 }
-//Labor sets------------------------------------
+//Labor sets
 class CivilianNoninstitutionalPopulation : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
@@ -124,7 +120,7 @@ class NotInLaborForce : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
 }
-//Monetary sets-----------------
+//Monetary sets
 class MonetaryBase : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
@@ -149,7 +145,7 @@ class M2MoneyStock : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
 }
-//Currency Sets------------------
+//Currency Sets
 class TradeWeightedUSDollarIndex : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
@@ -174,7 +170,7 @@ class JapanUSForeignExchangeRate : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0
 }
-//Other sets----------------------------
+//Other sets
 class SP500 : Object{
     @objc dynamic var Year = ""
     @objc dynamic var data = 0.0

@@ -1,26 +1,23 @@
-//
-//  File.swift
-//  ProjectPrototype
-//
 //  Created by JingyiZhang on 2/14/18.
 //  Copyright © 2018 jz. All rights reserved.
-//
 
 import Foundation
 import UIKit
 import RealmSwift
 
 class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    
+    //shows the name of the result
     @IBOutlet weak var resultNote: UILabel!
+    //the table to show the results
     @IBOutlet weak var resultTable: UITableView!
+    //back button
     @IBAction func backSecond(_ sender: Any) {
         self.performSegue(withIdentifier: "thirdToSecond", sender: self)
     }
+    //graph button
     @IBAction func graph(_ sender: Any) {
         self.performSegue(withIdentifier: "ThirdToGraph", sender: self)
     }
-    
     var Year = [String]()
     var Amount = [Double]()
     var Amount2 = [Double]()
@@ -29,7 +26,7 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var second = String()
     var final = [String]()
     var pass = [Double]()
-    //table view function-------------------------------
+    //table view function
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -45,7 +42,7 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
-    //append array---------------------------------------------------------
+    //append year data in array
     func appendArray(){
         let i = 0
         var x = String()
@@ -54,7 +51,7 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
             Array.append(x)
         }
     }
-    //append data-------------------------
+    //append data
     func appendData(){
         let realm = try! Realm()
         let alldata = realm.objects(GrossDomesticProduct.self)
@@ -100,7 +97,7 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let alldata31 = realm.objects(ChinaUSForeignExchangeRate.self)
         let alldata32 = realm.objects(CanadaUSForeignExchangeRate.self)
         let alldata33 = realm.objects(JapanUSForeignExchangeRate.self)
-        //first---------------------------------
+        //numerators
         if first == "Gross Domestic Product"{
             for i in alldata{
                 Year.append("\(i.Year)")
@@ -332,7 +329,7 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 resultTable.reloadData()
             }
         }
-        //second----------------------
+        //denominators
         if second == "Gross Domestic Product"{
             for i in alldata{
                 //Year.append("\(i.Year)")
@@ -565,7 +562,7 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
             }
         }
     }
-    //calculation ----------------------
+    //perform calculation
     func calculation(){
         var x = 0
         var up = 0.0
@@ -573,7 +570,6 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let result = 0
         var finalResult = Double()
         while x < Amount.count{
-            //print ("x is -----> ", x)
             up = Amount[x]
             let upFloat = Double(up)
             down = Amount2[x]
@@ -588,7 +584,7 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
     }
-    //global variable-----------------------------------
+    //global variable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is SecondView{
             let pickName = segue.destination as! SecondView
@@ -604,27 +600,18 @@ class ThirdView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    //--------------------------------------------------
+    //load view
     override func viewDidLoad() {
         super.viewDidLoad()
         appendData()
-        //print(first)
-        //print(second)
-        //print(Amount)
-        //print(Amount2)
         calculation()
         resultNote.text = first + " as a % of " + second
-        //print(final)
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+    //prevent rotation to landscape
     func canRotate() -> Void {}
-    
 }
 

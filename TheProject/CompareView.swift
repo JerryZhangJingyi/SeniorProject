@@ -1,44 +1,31 @@
-//
-//  CompareView.swift
-//  TheProject
-//
-//  Created by JingyiZhang on 2018/4/13.
+//  Created by JingyiZhang on 2018/3/13.
 //  Copyright © 2018 jz. All rights reserved.
-//
-
-import Foundation
-//
-//  CompareView.swift
-//  FinalProject
-//
-//  Created by JingyiZhang on 2018/4/13.
-//  Copyright © 2018 jz. All rights reserved.
-//
 
 import Foundation
 import UIKit
 import RealmSwift
 
 class CompareView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    //name of the compared datasets
     @IBOutlet weak var notes: UILabel!
-    
+    //prevent progress if nothing is selected
     @IBOutlet weak var flag: UILabel!
+    //picker view
     @IBOutlet weak var picker: UIPickerView!
+    //back button
     @IBAction func back(_ sender: Any) {
         self.performSegue(withIdentifier: "compareToFinal", sender: self)
     }
-
+    //graph button
     @IBAction func duel(_ sender: Any) {
         if flag.text == ""{
             self.performSegue(withIdentifier: "compareToDuel", sender: self)
         }
     }
-    
-    
     var Set = [String]()
     var name = String()
     var target = String()
-    //pickerView------------------------
+    //pickerView functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -52,19 +39,16 @@ class CompareView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //autoTarget()
         if Set[0] != "Not Valid"{
             target = Set[row]
             notes.text = "Compare " + name + " with " + target
             flag.text = ""
-            //go = "1"
-            //print("#", go)
         }
         else{
             flag.text = "Not Comparable"
         }
     }
-    //auto Target------------------------
+    //shows the compareable datasets
     func autoTarget(){
         if name == "Gross Domestic Product" ||
             name == "Personal Consumption Expenditures" ||
@@ -152,7 +136,7 @@ class CompareView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
             x = x + 1
         }
     }
-    //global variable-------------------------
+    //global variable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is FinalView{
             let pickName = segue.destination as! FinalView
@@ -164,22 +148,17 @@ class CompareView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
             pickName.second = target
         }
     }
-    //-------------------------------
+    //load view
     override func viewDidLoad() {
         super.viewDidLoad()
         target = ""
         notes.text = "Compare " + name + " with " + target
         flag.text = "Select"
-        //appendData()
         autoTarget()
-        
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+    //prevent rotation to landscape
     func canRotate() -> Void {}
-    
 }

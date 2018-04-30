@@ -1,7 +1,3 @@
-//
-//  SecondView.swift
-//  ProjectPrototype
-//
 //  Created by JingyiZhang on 2/12/18.
 //  Copyright © 2018 jz. All rights reserved.
 //
@@ -12,25 +8,31 @@ import RealmSwift
 
 class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate{
     
-
+    //shows the unit of the dataset
     @IBOutlet weak var unit: UILabel!
+    //prevent process if nothing is selected
     @IBOutlet weak var flag: UILabel!
+    //shows the name of the dataset
     @IBOutlet weak var DataName: UILabel!
+    //back button
     @IBAction func BackFirst(_ sender: Any) {
         self.performSegue(withIdentifier: "ConnectFirst", sender: self)
     }
+    //table view
     @IBOutlet weak var tableView: UITableView!
+    //the calculate button
     @IBAction func calculate(_ sender: Any) {
         if flag.text != "Select" {
             self.performSegue(withIdentifier: "connectThird", sender: self)
         }
     }
+    //the graph button
     @IBAction func graph(_ sender: Any) {
         self.performSegue(withIdentifier: "secondToFinal", sender: self)
     }
+    //shows the content of calculation
     @IBOutlet weak var notification: UILabel!
-    
-    
+    //picler view
     @IBOutlet weak var PickerView: UIPickerView!
     var Year = [String]()
     var Amount = [String]()
@@ -38,15 +40,10 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var Target = ""
     var DataSet = [String]()
     var flagInt = 0
-    //var nameForThird = String()
-    //var go = "0"
-    
-    
-    //global variable---------------------------------------
+    //global variable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ThirdView{
             let pickName = segue.destination as! ThirdView
-            
             pickName.first = DataName.text!
             pickName.second = Target
         }
@@ -56,7 +53,7 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
-    //picker view functions----------------
+    //picker view functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -70,16 +67,13 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //autoTarget()
         if DataSet[0] != "Not Valid"{
             Target = DataSet[row]
             notification.text = "Check " + Name + " as a % of " + Target
             flag.text = ""
-            //go = "1"
-            //print("#", go)
         }
     }
-    //table view functions-----------------
+    //table view functions
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -95,7 +89,7 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         return cell
     }
     
-    //check unit
+    //display the correct unit
     func checkUnit(){
         if Name == "Gross Domestic Product" ||
             Name == "Personal Consumption Expenditures" ||
@@ -145,10 +139,17 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         else if Name == "Japan US Foreign Exchange Rate"{
             unit.text = "(US Dollars to One Japanese Yen)"
         }
+        else if Name == "SP 500" ||
+            Name == "Dow Jones Industrial Average" ||
+            Name == "Wilshire 5000 Total Market Index" ||
+            Name == "CBOE Volatility Index" ||
+            Name == "St Louis Fed Financial Stress Index" ||
+            Name == "StateAndLocalBondsIndex"{
+            unit.text = ""
+        }
     }
     
-    //append data------------------------------------
-    
+    //append data
     func appendData(){
         let realm = try! Realm()
         let alldata = realm.objects(GrossDomesticProduct.self)
@@ -328,7 +329,7 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 tableView.reloadData()
             }
         }
-        //Labor------------------
+        //Labor
         else if Name == "Civilian Noninstitutional Population"{
             for i in alldata19{
                 Year.append("\(i.Year)")
@@ -364,7 +365,7 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 tableView.reloadData()
             }
         }
-        //money----------------
+        //money
         else if Name == "Monetary Base"{
             for i in alldata24{
                 Year.append("\(i.Year)")
@@ -400,7 +401,7 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 tableView.reloadData()
             }
         }
-        //Currency-----------------
+        //Currency
         else if Name == "Trade Weighted US Dollar Index"{
             for i in alldata29{
                 Year.append("\(i.Year)")
@@ -436,7 +437,7 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 tableView.reloadData()
             }
         }
-        //Other-----------------------
+        //Other
         else if Name == "SP 500"{
             for i in alldata34{
                 Year.append("\(i.Year)")
@@ -480,11 +481,13 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
         }
     }
-    //select target-------------------------------
+    //select the valid target for calculation
     func autoTarget(){
         if Name == "Personal Consumption Expenditures" ||
             Name == "Gross Private Domestic Investment" ||
-            Name == "Net Exports Of Goods And Services" ||
+            //Name == "Net Exports Of Goods And Services" ||
+            Name == "Exports Of Goods And Services" ||
+            Name == "Imports Of Goods And Services" ||
             Name == "Government Consumption Expenditures And Gross Investment"{
             DataSet = ["Gross Domestic Product"]
             flagInt = 0
@@ -550,10 +553,9 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             flagInt = 1
         }
     }
-    //------------------------------------------
+    //load view
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Target = ""
         DataName.text = Name
         appendData()
         checkUnit()
@@ -564,20 +566,13 @@ class SecondView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         else if flagInt == 1{
             notification.text = "No valid denominator"
         }
-        //autoTarget()
-        //print("##",go)
-        //print ("TARGET IS########### |" + Target + "|")
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+    //prevent rotation to landscape
     func canRotate() -> Void {}
-    
-    
 }
 
 

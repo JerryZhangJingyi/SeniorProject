@@ -1,10 +1,5 @@
-//
-//  ViewController.swift
-//  ProjectPrototype
-//
 //  Created by JingyiZhang on 2/12/18.
-//  Copyright © 2018 jz. All rights reserved.
-//
+
 
 import UIKit
 import RealmSwift
@@ -12,22 +7,20 @@ import RealmSwift
 
 class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    //the label which shows the name of the data
     @IBOutlet weak var Select: UILabel!
+    //the select button
     @IBOutlet weak var selectButton: UIButton!
-    
+    //data collection for the drop down menu
     @IBAction func selectData(_ sender: UIButton) {
         dataCollection.forEach{ (button) in
             UIView.animate(withDuration: 0.3, animations:
                 {button.isHidden = !button.isHidden
                 self.view.layoutIfNeeded()
             })
-            
-            //button.isHidden = !button.isHidden
-            
         }
     }
-    
-    
+    //add cases for the drop down menu
     var flag = 0
     enum choices: String{
         case GDP = "GDP Data"
@@ -36,8 +29,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         case Currency = "Currency Data"
         case Other = "Other Data"
     }
-    
-    //data selected--------------
+    //data selected
     @IBAction func data(_ sender: UIButton) {
         guard let title = sender.currentTitle,
         let choice = choices(rawValue: title) else {
@@ -63,7 +55,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                        "Wilshire 5000 Total Market Index",
                        "CBOE Volatility Index",
                        "St Louis Fed Financial Stress Index",
-                       "StateAndLocalBondsIndex"
+                       "State And Local Bonds Index"
             ]
             loadData()
             
@@ -130,10 +122,11 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             
         }
     }
-    
+    //button collection for the drop down menu
     @IBOutlet var dataCollection: [UIButton]!
-    
+    //picker view
     @IBOutlet weak var PickerView: UIPickerView!
+    //confirm button
     @IBAction func Confirm(_ sender: Any) {
         if Select.text != "Select one" {
             self.performSegue(withIdentifier: "ConnectSecond", sender: self)
@@ -141,8 +134,6 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         
     }
-    //var dataset = [String]()
-
     var dataset = ["Gross Domestic Product",
                    "Personal Consumption Expenditures",
                    "Durable Goods",
@@ -162,26 +153,6 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                    "Nondefense Expenditures",
                    "State Consumption Expenditures And Gross Investment"
     ]
-    
-   
-    
-    
-    
-    //delete data-------------
-    func deleteData(){
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(realm.objects(GrossDomesticProduct.self))
-            realm.delete(realm.objects(GrossPrivateDomesticInvestment.self))
-            realm.delete(realm.objects(PersonalConsumptionExpenditures.self))
-            realm.delete(realm.objects(NetExportsOfGoodsAndServices.self))
-            realm.delete(realm.objects(GovernmentConsumptionExpendituresAndGrossInvestment.self))
-            realm.delete(realm.objects(DurableGoods.self))
-            realm.delete(realm.objects(NondurableGoods.self))
-            realm.delete(realm.objects(Services.self))
-        }
-    }
-    //----------------------------------------------------------
     //global variable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is SecondView{
@@ -190,8 +161,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             pickName.Name = Select.text!
         }
     }
-    //picker view func------------------------------
-    
+    //picker view functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -209,28 +179,18 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         Select.text = dataset[row]
     }
     
-    //reload picker view--------------------------------------------------------
+    //reload picker view
     func loadData(){
         PickerView.reloadAllComponents()
     }
-   //set Realm path
-
-    
+   
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated) 
-        
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-       
+        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-    
     
 }
 
