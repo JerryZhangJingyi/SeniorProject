@@ -1,6 +1,7 @@
 # Project info
 
 This project is an ios app which allows users to check various economic data.
+branch tested
 
 # Requirements
 
@@ -58,7 +59,7 @@ State And Local Bonds Index
 
 # Usage
 
-Select the data you want to view and the data will be displayed in a table. 
+Select the data you want to view and the data will be displayed in a table.
 You can choose to view graph right away or you can do a calculation to check the percentage of two different sets of data.
 If you choose to view graph right away, you can then compare the data you just selected with another data in a new graph.
 If you choose to do the calculation, you can then view the results in another table and you will also be able to check the results in a graph.
