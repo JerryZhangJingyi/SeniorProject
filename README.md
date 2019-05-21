@@ -1,7 +1,6 @@
 # Project info
 
 This project is an ios app which allows users to check various economic data.
-branch tested
 
 # Requirements
 
